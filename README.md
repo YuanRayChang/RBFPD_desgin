@@ -17,7 +17,11 @@ ___
 ## PSO initialization
 The key of the process is the particle swarm optimizaion (PSO). The first step is to initialize PSO, which is not automated.
 
-open ```main_initial.m```
+* Use ```main_initial.m``` to build the 40 initial RBFPD shape. 
+1. Call Solidwroks (```call_solidworks(0,i)```) to build .STEP file.
+1. Call Hypermesh (```call_hypermesh(0,i)```)to build .hm .inp file.
+1. Make sure every .STEP .hm and .inp  file exist.
+1. Call ABAQUS (```call_abaqus(0,i)```)to build .odb file.
 
 
 
