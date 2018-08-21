@@ -1,0 +1,161 @@
+' ******************************************************************************
+' C:\Users\user\AppData\Local\Temp\swx9408\Macro1.swb - macro recorded on 02/05/18 by user
+' ******************************************************************************
+Dim swApp As Object
+
+Dim Part As Object
+Dim boolstatus As Boolean
+Dim longstatus As Long, longwarnings As Long
+
+Sub main()
+
+Set swApp = Application.SldWorks
+
+
+' Open
+Set Part = swApp.OpenDoc6("E:\cantilever_YZ\raw.SLDPRT", 1, 0, "", longstatus, longwarnings)
+swApp.ActivateDoc2 "raw.SLDPRT", False, longstatus
+Set Part = swApp.ActiveDoc
+Set Part = swApp.ActiveDoc
+Dim myModelView As Object
+Set myModelView = Part.ActiveView
+myModelView.FrameLeft = 0
+myModelView.FrameTop = 0
+Set myModelView = Part.ActiveView
+myModelView.FrameState = swWindowState_e.swWindowMaximized
+Set myModelView = Part.ActiveView
+myModelView.FrameState = swWindowState_e.swWindowMaximized
+Part.SketchManager.InsertSketch True
+boolstatus = Part.Extension.SelectByID2("Plane3", "PLANE", 8.49719747418042E-02, -5.84246656569819E-02, 4.64453320481111E-02, False, 0, Nothing, 0)
+'Part.ClearSelection2 True
+
+Dim pointArray As Variant
+Dim points() As Double
+ReDim points(0 To 47) As Double
+points(0) = 4.99455633900254E-02
+points(1) = 2.87517273044759E-02
+points(2) = 0
+points(3) = 5.08220164767295E-02
+points(4) = 3.03098024591808E-02
+points(5) = 0
+points(6) = 5.12377070269849E-02
+points(7) = 3.17480256789064E-02
+points(8) = 0
+points(9) = 5.09359931992037E-02
+points(10) = 0.033425952768587
+points(11) = 0
+points(12) = 4.99455633900254E-02
+points(13) = 3.45645461508717E-02
+points(14) = 0
+points(15) = 4.78060092651447E-02
+points(16) = 3.45046201833803E-02
+points(17) = 0
+points(18) = 4.64302396715368E-02
+points(19) = 3.45645461508717E-02
+points(20) = 0
+points(21) = 4.45290815085571E-02
+points(22) = 3.45645461508717E-02
+points(23) = 0
+points(24) = 4.32142133675484E-02
+points(25) = 3.43248422809168E-02
+points(26) = 0
+points(27) = 0.042478186087834
+points(28) = 3.33660268011009E-02
+points(29) = 0
+points(30) = 4.21187412647441E-02
+points(31) = 3.13285439064863E-02
+points(32) = 0
+points(33) = 4.31415840508578E-02
+points(34) = 2.96506168168076E-02
+points(35) = 0
+points(36) = 4.48255854878141E-02
+points(37) = 2.83322455320558E-02
+points(38) = 0
+points(39) = 4.64166495172833E-02
+points(40) = 2.94708389143388E-02
+points(41) = 0
+points(42) = 4.73897645918271E-02
+points(43) = 2.87517273044759E-02
+points(44) = 0
+points(45) = 4.99455633900254E-02
+points(46) = 2.87517273044759E-02
+points(47) = 0
+pointArray = points
+Dim skSegment As Object
+Set skSegment = Part.SketchManager.CreateSpline((pointArray))
+Part.ClearSelection2 True
+Part.SketchManager.InsertSketch True
+Dim myFeature As Object
+Set myFeature = Part.FeatureManager.FeatureExtrusion2(True, False, True, 0, 0, 0.0019, 0.01, False, False, False, False, 1.74532925199433E-02, 1.74532925199433E-02, False, False, False, False, False, True, True, 0, 0, False)
+Part.SelectionManager.EnableContourSelection = False
+boolstatus = Part.Extension.SelectByID2("Plane3", "PLANE", 0.119228747124981, -5.84246656569821E-02, 4.50079849551106E-02, False, 0, Nothing, 0)
+Part.BlankRefGeom
+'boolstatus = Part.Extension.SelectByID2("Imported1", "BODYFEATURE", 0, 0, 0, False, 0, Nothing, 0)
+'Part.FeatureManager.HideBodies
+'boolstatus = Part.Extension.SelectByID2("Imported1", "BODYFEATURE", 0, 0, 0, False, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("Imported1", "BODYFEATURE", 0, 0, 0, False, 0, Nothing, 0)
+'boolstatus = Part.Extension.SelectByRay(8.97032422562636E-02, -9.95670286829977E-02, 2.30884417868546E-02, 0, 1, 0, 2.03624171508392E-04, 2, False, 0, 0)
+'boolstatus = Part.Extension.SelectByRay(9.01823579539304E-02, -9.42603590709155E-02, 3.09938507983569E-02, 0, 1, 0, 2.03624171508392E-04, 2, False, 0, 0)
+Part.FeatureManager.HideBodies
+Part.ClearSelection2 True
+
+boolstatus = Part.Extension.SelectByRay(9.19536572454831E-02, -9.41617302649433E-02, 3.66264598772581E-02, 0.958663431422102, -0.28052908044226, -4.76220566567793E-02, 2.03624171508392E-04, 2, True, 1, 0)
+Dim currHiddenEdgeSelectionInHLR As Long
+currHiddenEdgeSelectionInHLR = swApp.GetUserPreferenceToggle(swUserPreferenceToggle_e.swEdgesHiddenEdgeSelectionInHLR)
+swApp.SetUserPreferenceToggle swUserPreferenceToggle_e.swEdgesHiddenEdgeSelectionInHLR, True
+Part.ClearSelection2 True
+boolstatus = Part.Extension.SelectByRay(9.19536572454831E-02, -9.41617302649433E-02, 3.66264598772581E-02, 0.958663431422102, -0.28052908044226, -4.76220566567793E-02, 2.03624171508392E-04, 2, False, 1, 0)
+swApp.SetUserPreferenceToggle swUserPreferenceToggle_e.swEdgesHiddenEdgeSelectionInHLR, currHiddenEdgeSelectionInHLR
+Dim radiiArray1 As Variant
+Dim radiis1 As Double
+Dim dist2Array1 As Variant
+Dim dists21 As Double
+Dim conicRhosArray1 As Variant
+Dim coniRhos1 As Double
+Dim setBackArray1 As Variant
+Dim setBacks1 As Double
+Dim pointArray1 As Variant
+Dim points1 As Double
+Dim pointDist2Array1 As Variant
+Dim pointsDist21 As Double
+Dim pointRhoArray1 As Variant
+Dim pointsRhos1 As Double
+radiiArray1 = radiis1
+dist2Array1 = dists21
+conicRhosArray1 = coniRhos1
+setBackArray1 = setBacks1
+pointArray1 = points1
+pointDist2Array1 = pointsDist21
+pointRhoArray1 = pointsRhos1
+Set myFeature = Part.FeatureManager.FeatureFillet3(195, 0.0004, 0, 0, 0, 0, 0, (radiiArray1), (dist2Array1), (conicRhosArray1), (setBackArray1), (pointArray1), (pointDist2Array1), (pointRhoArray1))
+'boolstatus = Part.Extension.SelectByID2("Imported3", "SOLIDBODY", 0, 0, 0, True, 0, Nothing, 0)
+'boolstatus = Part.Extension.SelectByID2("Fillet1", "SOLIDBODY", 0, 0, 0, True, 0, Nothing, 0)
+Part.ClearSelection2 True
+'boolstatus = Part.Extension.SelectByID2("Fillet1", "BODYFEATURE", 0, 0, 0, False, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("Imported3", "SOLIDBODY", 0, 0, 0, True, 1, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("Fillet1", "SOLIDBODY", 0, 0, 0, True, 2, Nothing, 0)
+Set myFeature = Part.FeatureManager.InsertCombineFeature(15902, Nothing, Nothing)
+Part.ClearSelection2 True
+'boolstatus = Part.Extension.SelectByID2("Combine1", "SOLIDBODY", 0, 0, 0, True, 0, Nothing, 0)
+'Part.ClearSelection2 True
+boolstatus = Part.Extension.SelectByID2("Combine1", "SOLIDBODY", 0, 0, 0, False, 1, Nothing, 0)
+
+Set myFeature = Part.FeatureManager.InsertMoveCopyBody2(0, 0, 0, 0, 0.094431183755, -0.092067028683, 2.50703943549444E-02, 0, 0, 0, True, 1)
+'boolstatus = Part.Extension.SelectByID2("Imported1", "SOLIDBODY", 0, 0, 0, True, 0, Nothing, 0)
+'boolstatus = Part.Extension.SelectByID2("Body-Move/Copy1", "SOLIDBODY", 0, 0, 0, True, 0, Nothing, 0)
+Part.ClearSelection2 True
+'boolstatus = Part.Extension.SelectByID2("Body-Move/Copy1", "BODYFEATURE", 0, 0, 0, False, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("Imported1", "SOLIDBODY", 0, 0, 0, True, 1, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("Body-Move/Copy1", "SOLIDBODY", 0, 0, 0, True, 2, Nothing, 0)
+Set myFeature = Part.FeatureManager.InsertCombineFeature(15902, Nothing, Nothing)
+'boolstatus = Part.Extension.SelectByID2("Imported2", "SOLIDBODY", 0, 0, 0, True, 0, Nothing, 0)
+'boolstatus = Part.Extension.SelectByID2("Combine2", "SOLIDBODY", 0, 0, 0, True, 0, Nothing, 0)
+Part.ClearSelection2 True
+'boolstatus = Part.Extension.SelectByID2("Combine2", "BODYFEATURE", 0, 0, 0, False, 0, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("Imported2", "SOLIDBODY", 0, 0, 0, True, 2, Nothing, 0)
+boolstatus = Part.Extension.SelectByID2("Combine2", "SOLIDBODY", 0, 0, 0, True, 2, Nothing, 0)
+Set myFeature = Part.FeatureManager.InsertCombineFeature(15903, Nothing, Nothing)
+
+' Save As
+longstatus = Part.SaveAs3("E:\cantilever_YZ\step\0_0.STEP", 0, 0)
+End Sub
