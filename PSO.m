@@ -2,8 +2,9 @@ clc;
 clear;
 %% Problem Definition
 
-nVar = 10;
+nVar = 10; % number of design variables
 VarSize = [1 nVar];
+% range of design variables
 VarMin = [2.6, 1.8, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 1.6, 2.4];
 VarMax = [3.7, 3.3, 3.2, 3.2, 3.5, 3.3, 3.1, 3.2, 3.35, 3.8];
 %% Parameters of PSO
@@ -16,9 +17,9 @@ phi2 = 2.05; %2.05
 phi = phi1 + phi2;
 chi = 2*kappa/abs(2-phi-sqrt(phi^2-4*phi));
 
-w = chi;
-c1 = chi*phi1;
-c2 = chi*phi2;
+w = chi; % inertia
+c1 = chi*phi1; % cognitive constant
+c2 = chi*phi2; % social constant
 %% Initialization
 
 empty_particle.Position = [];
@@ -58,13 +59,15 @@ end
 
 BestCosts = zeros(MaxIter, 1);
 
-%resume running from round 18
-load particle
-GlobalBest.Position = [3.06145022172154,2.98316894759440,2.20988596644521,2.45506706770401,3.09336674564344,2.14417125456755,2.28075460085589,2.70910648293212,2.84575499547182,2.40000000000000];
-GlobalBest.Cost =  6.36096972851000; 
+% If the program breaks, you can resume the process by uncomment the lines
+% below. Then fill in the write number, which can be found  at the file in folder "particle" 
+% resume running from round 18
+% load particle
+% GlobalBest.Position = [3.06145022172154,2.98316894759440,2.20988596644521,2.45506706770401,3.09336674564344,2.14417125456755,2.28075460085589,2.70910648293212,2.84575499547182,2.40000000000000];
+% GlobalBest.Cost =  6.36096972851000; 
 %% Main Loop of PSO
 
-for it=18:34
+for it=1:30
     for i=1:nPop
         
         fid = fopen( 'position_area.txt', 'a' ); % output position and area

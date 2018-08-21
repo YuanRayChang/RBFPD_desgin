@@ -7,9 +7,12 @@ cmd_str = ['abaqus job=', jobname, ' input=', cmd_str1 ,'/inp/', jobname, '.inp 
 disp(cmd_str);
 system(cmd_str);
 
+% move odb file to folder "odb"
 if exist([jobname, '.odb'], 'file') == 2 
     movefile([jobname, '.odb'], 'odb');
 end
+% move rest of the file to folder "rest". These file can be deleted
+% afterwards, since thay are not important.
 if exist([jobname, '.com'], 'file') == 2 
     movefile([jobname, '.com'], 'rest');
 end
