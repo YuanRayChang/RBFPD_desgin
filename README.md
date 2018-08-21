@@ -14,7 +14,6 @@ This project can automatically optimize the shape of RBFPD.
 
 ___
 
-## PSO initialization
 The key of the process is the particle swarm optimizaion (PSO). The first step is to initialize PSO, which is not automated.
 
 * Use ```main_initial.m``` to build the 40 initial RBFPD shape
