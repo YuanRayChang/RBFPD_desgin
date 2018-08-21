@@ -13,3 +13,11 @@ This project can automatically optimize the shape of RBFPD.
 ![](Figure/Automated_optimization_process.PNG)
 
 ___
+
+## PSO initialization
+The key of the process is the particle swarm optimizaion (PSO). The first step is to initialize PSO, which is not automated.
+
+open ```main_initial.m```
+
+
+
